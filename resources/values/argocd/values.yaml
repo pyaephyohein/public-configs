@@ -944,7 +944,7 @@ server:
   ## Certificate configuration
   certificate:
     # -- Deploy a Certificate resource (requires cert-manager)
-    enabled: false
+    enabled: true
     # -- Certificate primary domain (commonName)
     domain: argocd.example.com
     # -- The requested 'duration' (i.e. lifetime) of the Certificate. Value must be in units accepted by Go time.ParseDuration
@@ -953,9 +953,9 @@ server:
     renewBefore: ""
     issuer:
       # -- Certificate issuer kind. Either `Issuer` or `ClusterIssuer`
-      kind: ""
+      kind: "ClusterIssuer"
       # -- Certificate isser name. Eg. `letsencrypt`
-      name: ""
+      name: "selfsigned"
     # -- Certificate manager additional hosts
     additionalHosts: []
     # -- The name of the Secret that will be automatically created and managed by this Certificate resource
@@ -1147,13 +1147,12 @@ server:
 
     # -- Ingress TLS configuration for dedicated [gRPC-ingress]
     tls:
-      []
-      # - secretName: argocd-tls-certificate
-      #   hosts:
-      #     - argocd.example.com
+      - secretName: argocd-tls-certificate
+        hosts:
+          - argocd.example.com
 
     # -- Uses `server.service.servicePortHttps` instead `server.service.servicePortHttp`
-    https: false
+    https: true
 
   # Create a OpenShift Route with SSL passthrough for UI and CLI
   # Consider setting 'hostname' e.g. https://argocd.apps-crc.testing/ using your Default Ingress Controller Domain

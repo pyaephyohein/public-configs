@@ -6,5 +6,4 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   selfSigned: {}
-environment:
-PATH: /snap/bin:{{ ansible_env.PATH }}
+

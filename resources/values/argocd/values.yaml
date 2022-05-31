@@ -959,7 +959,7 @@ server:
     # -- Certificate manager additional hosts
     additionalHosts: []
     # -- The name of the Secret that will be automatically created and managed by this Certificate resource
-    secretName: argocd-tls-certificate
+    secretName: argocd-server-tls
 
   ## Server service configuration
   service:
@@ -1081,7 +1081,7 @@ server:
 
     # -- Ingress TLS configuration
     tls:
-      - secretName: argocd-tls-certificate
+      - secretName: argocd-server-tls
         hosts:
           - argocd.example.com
 
@@ -1146,7 +1146,7 @@ server:
 
     # -- Ingress TLS configuration for dedicated [gRPC-ingress]
     tls:
-      - secretName: argocd-tls-certificate
+      - secretName: argocd-server-tls
         hosts:
           - argocd.example.com
 

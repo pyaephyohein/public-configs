@@ -959,7 +959,7 @@ server:
     # -- Certificate manager additional hosts
     additionalHosts: []
     # -- The name of the Secret that will be automatically created and managed by this Certificate resource
-    secretName: argocd-server-tls
+    secretName: argocd-tls-certificate
 
   ## Server service configuration
   service:
